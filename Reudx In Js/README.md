@@ -1,4 +1,7 @@
-# Creating Store
+# Redux In JavaScript
+
+
+## Creating Store
 1. Store is the main thing used in Redux.
 2. Store can be accessed all over the application.
 3. Store always needs a reducer.
@@ -55,4 +58,35 @@ setInterval(()=>{
 },2000)
 
 
+
 ```
+
+
+## ApplyMiddleware
+
+applymiddleware is another important concept in Redux .
+
+## 1. applymiddleware using with redux logger
+
+Redux Logger provide us the full detail of our global state when ever any change revert in reducer
+
+1. First of all you have to a npm package `redux-logger`
+2. import redux logger `import logger from "redux-logger";`
+3. Configure this with the Store `const store = createStore(reducer , applyMiddleware(logger.default));`
+
+
+## Code:
+
+
+```javascript
+import { createStore , applyMiddleware } from "redux";
+import logger from "redux-logger";
+
+
+const store = createStore(reducer , applyMiddleware(logger.default));
+```
+
+
+
+
+

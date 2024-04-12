@@ -1,6 +1,8 @@
-import { createStore } from "redux";
-const store = createStore(reducer);
+import { createStore , applyMiddleware } from "redux";
+import logger from "redux-logger";
 
+
+const store = createStore(reducer , applyMiddleware(logger.default));
 
 function reducer (state = {amount : 1} , action) // state and action in params
 {
@@ -11,14 +13,11 @@ function reducer (state = {amount : 1} , action) // state and action in params
   return state // Returning the new state
 }
 
-
-store.dispatch({type : "increment"});
-
-
-
 setInterval(()=>{
+  store.dispatch({type : "increment"});
   
-  console.log(store.getState());// .getState is the method to check global state
+  console.log(store.getState());
+  
 },2000)
 
 
